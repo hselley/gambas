@@ -1,0 +1,25 @@
+' Gambas module file
+
+Public Sub Main()
+  Dim calif As Single
+    
+  Print "Ingrese su calificacion"
+  Input calif
+  
+  If calif < 0 Then
+    Print "Capa 8"
+  Else If calif < 6 Then
+    Print "NA"
+  Else If calif < 7.5 Then
+    Print "S"
+  Else If calif < 9 Then
+    Print "B"
+  Else If calif < 10 Then
+    Print "MB"
+  Else If calif == 10 Then
+    Print "LAP"
+  Else
+    Print "Cordon Blue"
+  Endif
+  
+End
