@@ -20,4 +20,4 @@ Public Sub Main()
     Input x
   Wend
   Print "Adivinaste en "; i; " intentos"
-End
+End 
