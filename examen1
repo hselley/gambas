@@ -1,0 +1,30 @@
+' Gambas module file
+
+Public Sub Main()
+  Dim i, N, mayor, menor, x As Byte
+  
+  Print "Ingrese la cantidad de numeros, debe ser positivo"
+  Input N
+  
+  If N > 0 Then
+    Print "Ingrese un numero "
+    Input x
+    mayor = x
+    menor = x
+    For i = 2 To N Step 1
+      Print "Ingrese un numero "
+      Input x
+      If mayor < x Then
+        mayor = x
+      Endif
+      If menor > x Then
+        menor = x
+      Endif
+    Next
+    Print "Mayor = "; mayor
+    Print "Menor = "; menor
+  Else 
+    Print "Capa 8"
+  Endif
+    
+End
