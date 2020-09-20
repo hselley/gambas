@@ -1,0 +1,40 @@
+' Gambas module file
+
+Public Sub Main() 
+  Dim clave As Byte
+  Dim duracion, costo, cuota As Single
+  
+  Print "Introduzca la clave de zona"
+  Input clave
+  Print "Intrduzca la duración en minutos"
+  Input duracion
+  
+  If clave == 12 Then
+    cuota = 2
+    Print "América del Norte"
+  Else If clave == 15 Then
+    cuota = 2.2
+    Print "América Central"
+  Else If clave == 18 Then
+    cuota = 4.5
+    Print "América del Sur"
+  Else If clave == 19 Then
+    cuota = 3.5
+    Print "Europa"
+  Else If clave == 23 Then
+    cuota = 6
+    Print "Asia"
+  Else If clave == 25 Then
+    cuota = 6
+    Print "Africa"
+  Else If clave == 29 Then
+    cuota = 5
+    Print "Oceanía"
+  Else 
+    Print "Clave con capacidades diferentes"
+  Endif
+  
+  costo = duracion * cuota
+  Print "La llamada costó: "; costo; " dolares"
+   
+End
