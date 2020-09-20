@@ -1,0 +1,38 @@
+' Gambas module file
+
+Public Sub Main()
+  Dim opcion As Byte
+  Dim x, y, res As Float
+  
+  Repeat
+    Print "Seleccione la opcion deseada"
+    Print "1. Suma"
+    Print "2. Resta"
+    Print "3. Multiplicacion"
+    Print "4. Division"
+    Print "0. Salir"
+    Input opcion
+    If opcion <> 0 And (opcion >= 1 And opcion <= 4) Then
+      Print "Ingrese dos numeros"
+      Input x, y     
+    Endif
+    
+    Select opcion
+      Case 1 'Suma
+        res = x + y
+      Case 2 'Resta
+        res = x - y
+      Case 3 'Multiplicacion
+        res = x * y
+      Case 4 'Division
+        res = x / y
+      Case 0
+        Print "Gracias por usar la calculadora"
+      Default
+        Print "Operacion no existente"
+    End Select
+    
+    Print "Resultado = "; res
+  Until opcion == 0
+  
+End
