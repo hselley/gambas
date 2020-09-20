@@ -1,0 +1,11 @@
+' Gambas module file
+
+Public Sub Main()
+  Dim i, j As Byte
+  
+  For i = 1 To 3 'Renglones -> i
+    For j = 1 To 4 'Columnas -> j
+      Print "("; i; ", "; j; ")"
+     Next
+  Next
+End
