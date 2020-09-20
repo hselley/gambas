@@ -1,0 +1,23 @@
+' Gambas module file
+
+Public Sub Main()
+  Dim magico, x, i As Integer
+  
+  Randomize
+  magico = Rnd(0, 101) 'Generacion de numero aleatorio* entre 1 y 100
+  
+  Print "Adivine el numero magico"
+  Input x
+  
+  While x <> magico
+    If x > magico Then
+      Print "El numero magico es menor"
+    Else 'If x < magico Then
+      Print "El numero magico es mayor"
+    Endif   
+    Inc i
+    Print "Adivine el numero magico"
+    Input x
+  Wend
+  Print "Adivinaste en "; i; " intentos"
+End
