@@ -1,0 +1,20 @@
+' Gambas module file
+
+Public Sub Main()
+  Dim b, h, i, j As Short
+  
+  Print "Ingrese la base y altura del rectangulo"
+  Input b, h
+  
+  If b > 0 And h > 0 Then
+    For i = 1 To h Step 1 'Renglones
+      For j = 1 To b Step 1 'Columnas
+        Print "*";
+      Next
+      Print 
+    Next
+  
+  Else
+    Print "Los numeros deben ser positivos"  
+  Endif
+End
