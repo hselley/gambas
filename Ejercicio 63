@@ -1,0 +1,23 @@
+' Gambas module file
+
+Public Sub Main()
+  Dim i, j, x, n, s, p As Integer
+  
+  Print "Ingrese la base y el exponente"
+  Input x, n
+  
+  If x > 0 And n > 0 Then
+    p = 1
+    For i = 1 To n
+      s = 0
+      For j = 1 To p
+        s = s + x
+      Next
+      p = s
+    Next
+
+    Print x; "^"; n; " = "; p
+  Else
+    Print "Los numeros denen ser positivos"
+  Endif
+End
