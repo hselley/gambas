@@ -1,0 +1,20 @@
+' Gambas module file
+
+Public Sub Main()
+  Dim i, j, n As Short
+  
+  Print "Ingrese un numero positivo"
+  Input n
+  
+  If n > 0 Then
+    For i = n To 1 Step -1
+      Print
+      For j = 1 To i Step 1
+        Print i;
+      Next
+    Next
+  Else
+    Print "El numero no es positivo"
+  Endif
+  
+End
