@@ -1,0 +1,21 @@
+' Gambas module file
+
+Public Sub Main()
+  Dim n As Short
+  
+  Print "Ingrese un numero positivo"
+  Input n
+  
+  If n > 0 Then
+    While n <> 1
+      If n Mod 2 == 0 Then
+        n /= 2 'Caso par
+      Else
+        n = 3 * n + 1 'Caso impar
+      Endif
+      Print n
+    Wend
+  Else
+    Print "NCD"
+  Endif
+End
