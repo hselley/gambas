@@ -1,0 +1,50 @@
+' Gambas module file
+
+Public Sub Main()
+  Dim v As Byte
+  Dim c1, c2, c3, c4, nulo, T As Short
+  Dim p1, p2, p3, p4, p5 As Long
+  
+  Print "Ingrese su voto."
+  Print "1. Candidato X"
+  Print "2. Candidato Y"
+  Print "3. Candidato Z"
+  Print "4. Candidato A"
+  Print "0. Terminar"
+  Input v
+   
+  While v <> 0 
+    Select v
+      Case 1
+        Inc c1 'c1=c1+1 o c1+=1
+      Case 2
+        Inc c2
+      Case 3
+        Inc c3
+      Case 4
+        Inc c4
+      Default
+        Inc nulo
+    End Select 
+    
+    Print "Ingrese su voto."
+    Print "1. Candidato X"
+    Print "2. Candidato Y"
+    Print "3. Candidato Z"
+    Print "4. Candidato A"
+    Print "0. Terminar"
+    Input v
+  Wend
+   T = c1 + c2 + c3 + c4 + nulo
+   p1 = c1 / T * 100
+   p2 = c2 / T * 100
+   p3 = c3 / T * 100
+   p4 = c4 / T * 100
+   p5 = nulo / T * 100
+   
+   Print "Candidato 1: "; p1; "%"
+   Print "Candidato 2: "; p2; "%"
+   Print "Candidato 3: "; p3; "%"
+   Print "Candidato 4: "; p4; "%"
+   Print "Nulo: "; p5; "%"
+End
