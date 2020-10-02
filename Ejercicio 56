@@ -1,0 +1,24 @@
+' Gambas module file
+
+Public Sub Main()
+  Dim i, j, m, n, x As Integer
+  
+  Randomize
+  
+  Print "Introduzca el tama��o de la matriz"
+  Input m, n 
+  'm = Args[1]  
+  'n = Args[2]
+  
+  If m > 0 And n > 0 Then
+    For i = 1 To m
+      For j = 1 To n
+        x = Rnd(0, 101)
+        Print x,
+      Next
+      Print
+    Next
+  Else 
+    Print "Los n��umeros deben ser positivos"
+  Endif
+End
