@@ -1,0 +1,27 @@
+' Gambas module file
+
+Public Sub Main()
+  Dim i, j, n, p As Short
+  
+  Print "Ingrese un numero positivo"
+  Input n
+    
+  If n > 0 Then
+    Print "x", "��primo?"
+    For j = 1 To n Step 1
+      For i = 1 To j Step 1
+        If j Mod i == 0 Then
+          Inc p
+        Endif
+      Next
+      If p == 2 Then
+        Print j, "Si", p
+      Else 
+        Print j, "No", p
+      Endif    
+      p = 0
+    Next
+  Else
+    Print "El numero no es positivo"
+  Endif
+End
