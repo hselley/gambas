@@ -1,0 +1,39 @@
+' Gambas module file
+
+Public Sub Main()
+  Dim cosecha As New Integer[12]
+  Dim i, imayor, imenor, tmayor As Byte
+  Dim p As Single
+  
+  p = 0
+  imayor = 0
+  imenor = 0
+  tmayor = 0
+  
+  For i = 0 To 11
+    Repeat
+      Print "Ingrese la cosecha del mes "; i + 1
+      Input cosecha[i] 
+    Until cosecha[i] >= 0
+    p = p + cosecha[i]
+  Next
+  
+  p = p / 12 'Promedio
+  Print "El promedio del a��o fue: "; p
+  
+  For i = 0 To 11
+    If cosecha[i] > p Then
+      Inc imayor 'imayor = imayor + 1
+    Else If cosecha[i] < p Then
+      Inc imenor       
+    Endif
+    If cosecha[i] > tmayor Then
+      tmayor = i + 1
+    Endif
+  Next
+  
+  Print "Hubo "; imayor; " meses con mayor produccion al promedio"
+  Print "Hubo "; imenor; " meses con menor produccion al promedio"
+  Print "El mes "; tmayor; " tuvo la mayor produccion del a��o"
+  
+End
