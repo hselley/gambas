@@ -1,0 +1,37 @@
+' Gambas module file
+
+Public Sub Main()
+  Dim calif As New Single[12]
+  Dim i, imayor, imenor As Byte
+  Dim s, mayor, menor As Single
+  
+  mayor = 0
+  menor = 10
+  
+  Print "Ingrese las calificaciones de los alumnos"
+  For i = 0 To 11
+    Repeat 'Validacion de la calificacion ingresada
+      Print "Alumno "; i + 1; ": "
+      Input calif[i]
+    Until calif[i] >= 0 And calif[i] <= 10
+    If calif[i] > mayor Then
+      mayor = calif[i]
+      imayor = i + 1
+    Endif
+    If calif[i] < menor Then
+      menor = calif[i]
+      imenor = i + 1
+    Endif     
+  Next
+  
+  s = 0
+  For i = 0 To 11
+    s = s + calif[i]
+  Next
+  
+  s = s / 12 'Promedio
+  
+  Print "El promedio del grupo es: "; s
+  Print "La calificacion mayor es: "; mayor; " y la obtuvo el alumno "; imayor
+  Print "La calificacion menor es: "; menor; " y la obtuvo el alumno "; imenor
+End
