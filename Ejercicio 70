@@ -1,0 +1,30 @@
+' Gambas module file
+
+Public Const N As Byte = 50 'Declaracion de la constante N, tama��o maximo de los vectores
+
+Public Sub Main()
+  Dim a, b, c As New Integer[N]
+  Dim i, tamanio As Byte
+  
+  Print "Ingrese el tama��o de los vectores (maximo 50)"
+  Input tamanio
+  
+  If tamanio <= 50 Then
+    For i = 0 To tamanio - 1
+      Print "a["; i + 1; "] = ";
+      Input a[i]
+      Print "b["; i + 1; "] = ";
+      Input b[i]
+    Next
+    Print "La suma de los vectores es: "
+    Print "(";
+    For i = 0 To tamanio - 1
+      c[i] = a[i] + b[i]
+      'Print "c["; i + 1; "] = "; c[i]
+      Print c[i]; ", "; 
+    Next
+    Print ")"
+  Else
+    Print "Fuera de las dimensiones permitidas"
+  Endif
+End
