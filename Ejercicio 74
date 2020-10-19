@@ -1,0 +1,52 @@
+' Gambas module file
+
+Public Const N As Byte = 10 'Constante que indica el numero de alumnos
+
+Public Sub Main()
+  Dim nombres As New String[N]
+  Dim califs As New Float[N]
+  Dim p, s, de As Float
+  Dim i, imayor, imenor As Byte
+  
+  Print "Ingrese los nombres y calificaciones"
+  For i = 0 To N - 1
+    Print "Nombre Alumno "; i + 1; ": ";
+    Input nombres[i]
+    Print "Calificacion de "; nombres[i]; ": ";
+    Input califs[i]
+  Next
+  
+  ' Calcular el promedio
+  p = 0
+  For i = 0 To N - 1
+    p = p + califs[i]
+  Next
+  p = p / N 'Promedio
+  
+  'Varianza
+  s = 0
+  For i = 0 To N - 1
+    s = s + (califs[i] - p) ^ 2
+  Next
+  s = s / N ' Varianza
+  de = s ^ (1 / 2) ' Desviacion Estandar 
+  
+  ' B��squeda de la calificacion mayor y menor
+  imayor = 0
+  imenor = 0
+  For i = 0 To N - 1
+    If califs[i] > califs[imayor] Then
+      imayor = i
+    Endif
+    If califs[i] < califs[imenor] Then
+      imenor = i
+    Endif
+  Next
+  
+  Print "Promedio = "; p
+  Print "Varianza = "; s
+  Print "Desviacion Estandar = "; de
+  Print "Alumno con calificacion mayor: "; nombres[imayor]
+  Print "Alumno con calificacion menor: "; nombres[imenor]
+  
+End
