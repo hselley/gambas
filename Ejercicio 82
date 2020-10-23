@@ -1,0 +1,50 @@
+' Gambas module file
+
+Public Const N As Byte = 3
+
+Public Sub Main()
+  Dim x, y, z As New Integer[N, N]
+  Dim i, j, k As Byte
+  Dim s As Integer
+  
+  Print "Ingrese los datos de las matrices de tama��o "; N; " x "; N
+  For i = 0 To N - 1 'renglones
+    For j = 0 To N - 1 'columnas
+      Print "x("; i + 1; ", "; j + 1; ") = ";
+      Input x[i, j] 'Matriz 1: x
+    Next
+  Next
+
+  Print "Ingrese los datos de las matrices de tama��o "; N; " x "; N
+  For i = 0 To N - 1 'renglones
+    For j = 0 To N - 1 'columnas
+      Print "y("; i + 1; ", "; j + 1; ") = ";
+      Input y[i, j] 'Matriz 2: y
+    Next
+  Next
+  imprimirMatriz(x)
+  imprimirMatriz(y)
+  
+  For k = 0 To N - 1
+    For j = 0 To N - 1
+      For i = 0 To N - 1
+        z[k, j] = z[k, j] + x[k, i] * y[i, j]
+      Next  
+    Next
+  Next
+  
+  imprimirMatriz(z)
+End
+
+Public Function imprimirMatriz(x As Integer[])
+  Dim i, j As Byte
+  
+  For i = 0 To N - 1
+    For j = 0 To N - 1
+      Print x[i, j],
+    Next
+    Print
+  Next
+  Print
+  
+End
