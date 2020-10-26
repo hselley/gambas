@@ -1,0 +1,35 @@
+' Gambas module file
+
+Public Const M As Byte = 20
+Public Const N As Byte = 15
+Public Const costo As Byte = 48
+
+Public Sub Main()
+  Dim f, h, v As Byte
+  Dim asientos As New Byte[M, N]
+  
+  Print "Bienvenido a PolisMexCine"
+  
+  v = 0
+  Repeat
+    Print "Ingrese la ubicacion de su butaca, introduzca 0 para salir."
+    Print "Ingrese la fila (maximo 20)"
+    Input f
+    Print "Ingrese la hilera (maximo 15)"  
+    Input h
+    If f <> 0 And h <> 0 Then
+      If asientos[f - 1, h - 1] = 0 Then
+        Print "Se le asigno el lugar indicado"
+        asientos[f - 1, h - 1] = 1
+        Inc v 
+      Else 'Lugar ocupado
+        Print "El lugar indicado est�� ocupado, elija otro."
+      Endif
+    Endif
+  Until f = 0 Or h = 0
+  
+  Print "Boletos vendidos: "; v
+  Print "Boletos no vendidos: "; M * N - v
+  Print "Total por venta de boletos: $"; costo * v
+  Print "Gracias por usar el sistema"
+End
