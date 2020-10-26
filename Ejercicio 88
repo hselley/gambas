@@ -1,0 +1,75 @@
+' Gambas module file
+
+Public Const M As Byte = 4
+Public Const N As Byte = 5
+
+Public Sub Main()
+  Dim a, c, bT As New Integer[M, N]
+  Dim b As New Integer[N, M]
+  Dim i, j As Byte
+  
+  Print "Ingrese los valores de las matrices"
+  'Pedimos la matriz a
+  For i = 0 To M - 1
+    For j = 0 To N - 1
+      Print "a("; i + 1; ", "; j + 1; ") = ";
+      Input a[i, j]
+    Next
+  Next
+  
+  'Pedimos la matriz b
+  For i = 0 To N - 1
+    For j = 0 To M - 1
+      Print "b("; i + 1; ", "; j + 1; ") = ";
+      Input b[i, j]
+      ' Print "a("; j + 1; ", "; i + 1; ") = ";
+      ' Input a[j, i]
+    Next
+  Next  
+  
+  bT = transpuesta(b)
+  imprimirMatriz(bT)
+  c = sumaMatrices(a, bT)
+  imprimirMatriz(c)
+  
+End
+
+Public Function transpuesta(x As Integer[]) As Integer[]
+  Dim i, j As Byte
+  Dim y As New Integer[M, N]
+  
+  For i = 0 To M - 1
+    For j = 0 To N - 1
+      y[i, j] = x[j, i]
+    Next
+  Next
+  
+  Return y
+End
+
+Public Sub imprimirMatriz(x As Integer[])
+
+
+  Dim i, j As Byte
+  
+  For i = 0 To M - 1
+    For j = 0 To N - 1
+      Print x[i, j],
+    Next
+    Print
+  Next
+  
+End
+
+Public Function sumaMatrices(x As Integer[], y As Integer[]) As Integer[]
+  Dim i, j As Byte
+  Dim z As New Integer[M, N]
+  
+  For i = 0 To M - 1
+    For j = 0 To N - 1
+      z[i, j] = x[i, j] + y[i, j]
+    Next
+  Next
+  
+  Return z
+End
