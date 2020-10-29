@@ -1,0 +1,70 @@
+' Gambas module file
+
+Public Const N As Byte = 50 'Tamano maximo
+
+Public Sub Main()
+  Dim a, b, c As New Integer[N, N]
+  Dim i, j, tamanio As Byte
+  Randomize
+  
+  Print "Introduzca el tamano de las matrices"
+  Input tamanio
+  
+  If tamanio > 0 And tamanio <= N Then
+    For i = 0 To tamanio - 1
+      For j = 0 To tamanio - 1
+        a[i, j] = Rnd(1, 11)
+        b[i, j] = Rnd(1, 11)
+      Next
+    Next
+    
+    imprimirMatriz(a, tamanio)
+    imprimirMatriz(b, tamanio)
+    
+    c = sumarMatrices(a, b, tamanio)
+    imprimirMatriz(c, tamanio)
+    
+    c = sumarMatrices2(a, b)
+    imprimirMatriz(c, tamanio)
+    
+  Else
+    Print "Dimensiones incorrectas"
+  Endif
+End
+Public Sub imprimirMatriz(x As Integer[], t As Byte)
+  Dim i, j As Byte
+  
+  For i = 0 To t - 1
+    For j = 0 To t - 1
+      Print x[i, j],
+    Next
+    Print
+  Next
+  Print
+  
+End
+
+Public Function sumarMatrices(a As Integer[], b As Integer[], t As Byte) As Integer[]
+  Dim z As New Integer[N, N]
+  Dim i, j As Byte
+  
+  For i = 0 To t - 1
+    For j = 0 To t - 1
+      z[i, j] = a[i, j] + b[i, j]
+    Next
+  Next
+  
+  Return z
+End
+Public Function sumarMatrices2(a As Integer[], b As Integer[]) As Integer[]
+  Dim z As New Integer[N, N]
+  Dim i, j As Byte
+  
+  For i = 0 To Sqr(a.Length) - 1
+    For j = 0 To Sqr(a.Length) - 1
+      z[i, j] = a[i, j] + b[i, j]
+    Next
+  Next
+  
+  Return z
+End
