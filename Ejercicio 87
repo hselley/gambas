@@ -1,0 +1,42 @@
+' Gambas module file
+
+Public Const alumnos As Byte = 100  'Capacidad m��axima de la Universidad
+Public Const materias As Byte = 10  'Numero maximo de materias por alumno
+
+Public Sub Main()
+  Dim registro As New Float[alumnos, materias]
+  Dim i, j, a, m As Byte
+  Dim p As Float
+  
+  Print "Introduzca el numero de estudiantes"
+  Input a
+  Print "Introduzca el numero de materias por estudiante"
+  Input m
+  
+  If a > 0 And m > 0 And a <= alumnos And m <= materias Then
+    Print "Introduzca las calificaciones por alumno"
+    For i = 0 To a - 1 'Recorre alumnos
+      p = 0
+      For j = 0 To m - 1 'Recorre materias
+        Print "Alumno "; i + 1; ", calificacion materia "; j + 1; ": ";
+        Input registro[i, j]
+        p = p + registro[i, j]
+      Next
+      Print "Promedio Alumno "; i + 1; ": "; p / m
+    Next
+    
+    ' Promedio por materia
+    For i = 0 To m - 1 'Recorre materias
+      p = 0
+      For j = 0 To a - 1 'Recorre alumnos
+        p = p + registro[j, i]
+      Next
+      Print "Promedio Materia "; i + 1; ": "; p / a
+    Next
+    
+  Else
+    Print "Capacidad excedida de la Universidad"
+  Endif
+  
+  
+End
