@@ -1,0 +1,84 @@
+' Gambas module file
+
+Public Sub Main()
+  Dim opcion As Byte
+  
+  
+  Repeat
+    Print "Seleccione la opcion"
+    Print "1. Circunferencia"
+    Print "2. Rectangulo"
+    Print "3. Triangulo"
+    Print "4. Trapecio"
+    Print "5. Salir"
+    Input opcion
+    
+    Select opcion
+      Case 1
+        ' circunferencia
+        circunferencia()
+      Case 2 
+        ' rectangulo
+        rectangulo()
+      Case 3 
+        ' triangulo
+        triangulo()
+      Case 4 
+        ' trapecio
+        Print "A = "; trapecio(); " u^2"
+      Case 5
+        Print "Gracias por usar el sistema"
+      Case Else
+        Print "Opcion no existente"
+    End Select
+    Print 
+  Until opcion = 5
+  
+End
+
+Public Sub circunferencia()
+  Dim r, a As Float
+  
+  Print "Ingrese el radio"
+  Input r
+  
+  a = Pi * r ^ 2
+  
+  Print "A = "; a; " u^2"
+  
+End
+
+Public Sub rectangulo()
+  Dim b, h, a As Float
+  
+  Print "Ingrese la base y altura"
+  Input b, h
+  
+  a = b * h
+  
+  Print "A = "; a; " u^2"
+  
+End
+
+Public Sub triangulo()
+  Dim b, h, a As Float
+  
+  Print "Introduzca la base y altura"
+  Input b, h
+  
+  a = b * h / 2
+  
+  Print "A = "; a; " u^2"
+  
+End
+Public Function trapecio() As Float
+  Dim b1, b2, h, a As Float
+  
+  Print "Ingrese la base mayor, base menor y altura"
+  Input b1, b2, h
+  
+  a = (b1 + b2) * h / 2
+  
+  Return a
+  
+End
