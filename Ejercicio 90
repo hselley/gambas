@@ -1,0 +1,85 @@
+' Gambas module file
+
+Public Const centros As Byte = 10
+Public Const meses As Byte = 12
+
+Public Sub Main()
+  Dim turismo As New Integer[centros, meses]
+  Dim i, j As Byte
+  Randomize
+  
+  Print "Secretaria de Turismo"
+  Print "Ingrese la cantidad de visitantes por a��o y por centro tur��istico"
+  
+  For i = 0 To centros - 1
+    For j = 0 To meses - 1
+      'Print "Centro "; i + 1; " mes "; j + 1;
+      'Input turismo[i, j]
+      turismo[i, j] = Rnd(1, 100)
+    Next
+  Next
+  
+  imprimirMatriz(turismo)
+  totalVisitantesPorCentro(turismo)
+  masMenosVisitas(turismo)
+  
+End
+
+Public Sub masMenosVisitas(x As Integer[])
+  Dim i, j As Byte
+  Dim s, mayor, menor, centroMayor, centroMenor As Integer
+  
+  mayor = 0
+  centroMayor = 0 
+  menor = 2147483647
+  centroMenor = 0
+  
+  For i = 0 To centros - 1
+    s = 0
+    For j = 0 To meses - 1
+      s = s + x[i, j]
+    Next
+    If s > mayor Then
+      mayor = s 
+      centroMayor = i
+    Endif
+    If s < menor Then
+      menor = s
+      centroMenor = i
+    Endif    
+  Next
+  
+  Print "El centro con menor numero de visitas fue: "; centroMenor + 1; " ("; menor; ")"
+  Print "El centro con mayor numero de visitas fue: "; centroMayor + 1; " ("; mayor; ")"
+  
+End
+
+
+Public Sub totalVisitantesPorCentro(x As Integer[])
+  Dim i, j As Byte
+  Dim s As Integer
+  
+  For i = 0 To centros - 1
+    s = 0
+    For j = 0 To meses - 1
+      s = s + x[i, j]
+    Next
+    Print s,
+  Next 
+  Print
+End
+
+
+
+Public Sub imprimirMatriz(x As Integer[])
+  Dim i, j As Byte
+  
+  For i = 0 To centros - 1
+    For j = 0 To meses - 1
+      Print x[i, j],
+    Next
+    Print
+  Next
+  Print
+  
+End
