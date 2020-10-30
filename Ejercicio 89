@@ -1,0 +1,102 @@
+' Gambas module file
+
+Public Const sucursal As Byte = 6
+Public Const anios As Byte = 5
+
+Public Sub Main()
+  Dim m As New Integer[anios, sucursal]
+  Dim i, j As Byte
+  Randomize
+  
+  Print "Empresa automotriz Furiosos y Rapidos"
+  Print "Ingrese los montos correspondientes a cada sucursal por a��o"
+  For i = 0 To anios - 1
+    For j = 0 To sucursal - 1
+      'Print "A��o "; i + 1; ", Sucursal "; j + 1; ": ";
+      'Input m[i, j]
+      m[i, j] = Rnd(1, 51)
+    Next
+  Next
+  
+  imprimirMatriz(m)
+  
+  sucursalMasExitosa(m)
+  
+  promedioVentas(m)
+  
+  mayorPromedio(m)
+  
+End
+
+Public Sub mayorPromedio(x As Integer[])
+  Dim i, j As Byte
+  Dim s, mayor, anioMayor As Integer
+  
+  mayor = 0
+  anioMayor = 0
+  For i = 0 To anios - 1
+    s = 0 
+    For j = 0 To sucursal - 1
+      s = s + x[i, j]
+    Next
+    If s > mayor Then
+      mayor = s
+      anioMayor = i
+    Endif
+    'Print s, 
+  Next
+  'Print
+  Print "El a��o m��s exitoso fue el "; anioMayor + 1; " con "; mayor; " ventas"
+End
+
+Public Sub promedioVentas(x As Integer[])
+  Dim i, j As Byte
+  Dim s As Integer
+  
+  For i = 0 To sucursal - 1
+    s = 0
+    For j = 0 To anios - 1
+      s = s + x[j, i]
+    Next
+    Print s / anios,
+  Next
+  Print
+End
+
+Public Sub sucursalMasExitosa(x As Integer[])
+  Dim i, j As Byte
+  Dim mayor, sucMayor, s As Integer
+  
+  s = 0
+  mayor = 0
+  sucMayor = 0
+  
+  For i = 0 To sucursal - 1
+    s = 0
+    For j = 0 To anios - 1
+      s = s + x[j, i]
+    Next
+    If s > mayor Then
+      mayor = s
+      sucMayor = i
+    Endif
+    'Print s,
+  Next
+  
+  Print "La ganadora fue sucursal "; sucMayor + 1; " que vendi��: "; mayor
+End
+
+
+Public Sub imprimirMatriz(x As Integer[])
+  Dim i, j As Byte
+  
+  For i = 0 To anios - 1
+    For j = 0 To sucursal - 1
+      Print x[i, j],
+    Next
+    Print
+  Next
+  Print
+  
+End
+
