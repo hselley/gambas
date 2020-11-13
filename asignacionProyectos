@@ -1,0 +1,101 @@
+' Gambas module file
+
+Public Sub Main()
+  Dim conjunto As New Integer[24]
+  Dim lista As New Byte[18]
+  Dim proyectos As New String[12]
+  Dim alumnos As New String[18]
+  Dim i, j, p As Byte
+  Randomize
+  
+  ' 'Lista de los nombres de los proyectos
+  ' For i = 0 To proyectos.Length - 1
+  '   proyectos[i] = "Proyecto " & (i + 1)
+  ' Next
+  ' 
+  ' imprimirCadena(proyectos)
+  ' 
+  ' 'Lista de alumnos
+  ' For i = 0 To alumnos.Length - 1
+  '   alumnos[i] = "Alumno " & (i + 1)
+  ' Next
+  ' 
+  ' imprimirCadena(alumnos)
+  
+  alumnos[0] = "Garc��a Rodr��guez, Mart��n"
+  alumnos[1] = "Gonz��lez Ram��rez, Diego "
+  alumnos[2] = "Hern��ndez Pedraza, Yehudi"
+  alumnos[3] = "Maldonado Miranda, Eduardo"
+  alumnos[4] = "Montoya Mois��s, Sara Beatriz"
+  alumnos[5] = "Ocampo Su��rez, Ximena"
+  alumnos[6] = "Rodr��guez Quijada, Mariana "
+  alumnos[7] = "Ter��n Ponce de Le��n, Ana Sof��a "
+  alumnos[8] = "Ahuja Lara, Mar��a Cristina "
+  alumnos[9] = "Guzm��n C��rdenas, Eduardo D. "
+  alumnos[10] = "Lara Zegarra, Santiago "
+  alumnos[11] = "Losoya Basurto, Karla S. "
+  alumnos[12] = "Miguel Casta����n, Omar "
+  alumnos[13] = "Mora P��rez, Santiago"
+  alumnos[14] = "N��jera Rivera, Sebasti��n "
+  alumnos[15] = "Nevarez Puente, Samantha "
+  alumnos[16] = "Noriega Salum, Pamela "
+  alumnos[17] = "Vargas Barrera, Sof��a " 
+  
+  proyectos[0] = "Loteria"
+  proyectos[1] = "Batalla Naval"
+  proyectos[2] = "Memoria"
+  proyectos[3] = "Serpientes y Escaleras"
+  proyectos[4] = "Juego de la Oca"
+  proyectos[5] = "Conecta 4"
+  proyectos[6] = "Mente Maestra"
+  proyectos[7] = "Fabuloso Fred"
+  proyectos[8] = "Adivina quien"
+  proyectos[9] = "Competencia de Rompecabezas"
+  proyectos[10] = "Lince"
+  proyectos[11] = "Bingo"
+  
+  j = 0
+  For i = 0 To conjunto.Length - 1
+    If j = 12 Then
+      j = 0
+    Endif    
+    conjunto[i] = j
+    Inc j
+  Next
+  
+  'imprimirMatriz(conjunto)
+  
+  For i = 0 To lista.Length - 1
+    Repeat
+      p = Rnd(0, conjunto.Length)
+    Until conjunto[p] <> -1
+    lista[i] = conjunto[p]
+    conjunto[p] = -1
+  Next
+  
+  imprimirMatriz(conjunto)
+  'imprimirMatriz(lista)
+  
+  For i = 0 To lista.Length - 1
+    Print alumnos[i]; " le toco "; proyectos[lista[i]]
+  Next
+  
+End
+Public Sub imprimirMatriz(x As Integer[])
+  Dim i As Byte
+  
+  For i = 0 To x.Length - 1
+    Print i; ": "; x[i]
+  Next
+  Print
+    
+End
+Public Sub imprimirCadena(x As String[])
+  Dim i As Byte
+  
+  For i = 0 To x.Length - 1
+    Print i; ": "; x[i]
+  Next
+  Print
+    
+End
